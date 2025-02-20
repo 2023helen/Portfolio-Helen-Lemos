@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ondas Digitales | Portfolio Helen Lemos</title>
+    <meta name="description" content="Post-exploración, encontré mi sintonía en el mundo digital, donde el diseño UX/UI y multimedia crean experiencias dinámicas y proyectadas al futuro.">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="shortcut icon" href="" type="image/x-icon"> <!--ACÁ AGREGAR EL FAVICON-->
+</head>
+
+<body>
+    <!-- HEADER -->
+     <header>
+
+        <nav class="volver">
+            <img src="img/back.png" alt="Volver">
+            <a href="index.html"> Volver</a>
+        </nav>
+
+        <nav class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="exitos.html">Éxitos Pop</a>
+            <a href="experimental.html">Experimental</a>
+            <a href="colaboraciones.html">Colaboraciones</a>
+            <a href="clasicos.html">Clásicos Sistemáticos</a>
+            <a class="active" href="#">Ondas Digitales</a>
+            <a href="#infocontacto">Contacto</a>
+        </nav>
+     </header>
+    
+    <!------ SECCIÓN 1: DESCRIPCIÓN ------>
+    <section class="category">
+        <article>
+            <h2>ONDAS DIGITALES</h2>
+            <p>El diseño digital es como una ola de sonido: en constante movimiento. Estos proyectos exploran el UX/UI y la animación, están pensados para la era interactiva. </p>
+        
+            <!-- Botón Play Redondo -->
+            <audio id="audio" src="songs/Intelestellar.mp3" preload="auto"></audio>
+
+            <div class="circlebtn" onclick="toggleAudio()">
+                <svg class="play" viewBox="0 0 50 50" width="24" height="24">
+                    <polygon points="12,8 38,25 12,42"/>
+                </svg>
+                
+                <svg class="pause" viewBox="0 0 50 50" width="24" height="24">
+                    <rect x="12" y="8" width="8" height="34"/>
+                    <rect x="28" y="8" width="8" height="34"/>
+                </svg>
+            </div>
+
+            <script>
+                function toggleAudio() {
+                    let audio = document.getElementById("audio");
+                    let playIcon = document.querySelector(".play");
+                    let pauseIcon = document.querySelector(".pause");
+            
+                    if (audio.paused) {
+                        audio.play(); // Reproduce la canción
+                        playIcon.style.display = "none"; 
+                        pauseIcon.style.display = "block"; 
+                    } else {
+                        audio.pause(); // Pausa la canción
+                        playIcon.style.display = "block"; 
+                        pauseIcon.style.display = "none"; 
+                    }
+                }
+            </script>
+        </article>
+    </section>
+
+    <section class="trabajos">
+<!-- Artículo PER-SÉ -->
+<article id="infografia">
+    <img src="img/portadavideo.png" alt="Portada con título e ilustración de mujer con computadora y auriculares">
+    <div>
+        <h3>TENDENCIAS REDES SOCIALES 2025</h3>
+        <p>Animación de video utilizando Adobe After Effects para la asignatura Diseño Digital 6.</p>
+        <p class="areas">Animación · After Effects · Animación </p>
+    </div>
+
+    <!-- Enlace para desplegar contenido -->
+    <a href="#contenido-info" class="ver-mas">
+        <img src="img/vermás.png" alt="Ver más">
+    </a>
+
+    <!-- Contenido oculto -->
+    <div id="contenido-info" class="contenido-extra">
+        <div class="video-container">
+            <video id="video-1" src="img/videoinfografía.mp4"></video>
+        </div>
+
+        <a href="#infografia" class="cerrar">
+            <img src="img/close-outline.png" alt="Cerrar">
+        </a>
+    </div>
+</article>
+
+<!-- Artículo UCARD -->
+<article id="ucard">
+    <img src="img/ucardportada2.png" alt="Portada con título e ilustración de mujer con computadora y auriculares">
+    <div>
+        <h3>UCARD APP DE FINANZAS</h3>
+        <p>Diseño UX/UI: Planteamiento y diseño de app sobre organización y finanzas personales.</p>
+        <p class="areas">UX/UI · Prototipado · Figma </p>
+    </div>
+
+    <!-- Enlace para desplegar contenido -->
+    <a href="#contenido-app" class="ver-mas">
+        <img src="img/vermás.png" alt="Ver más">
+    </a>
+
+    <!-- Contenido oculto -->
+    <div id="contenido-app" class="contenido-extra">
+        <div class="video-container">
+            <video id="video-2" src="img/Ucard.mp4"></video>
+        </div>
+
+        <a href="#ucard" class="cerrar">
+            <img src="img/close-outline.png" alt="Cerrar">
+        </a>
+    </div>
+</article>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Seleccionamos todos los enlaces "ver más"
+        const verMasLinks = document.querySelectorAll('.ver-mas');
+
+        verMasLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault(); // Evita el salto de ancla en la página
+
+                // Buscamos el contenedor del artículo padre
+                const article = this.closest("article");
+
+                // Buscamos el video dentro de ese artículo
+                const video = article.querySelector("video");
+
+                // Verificamos si el video existe
+                if (video) {
+                    // Mostrar el contenido extra
+                    const contenidoExtra = article.querySelector(".contenido-extra");
+                    contenidoExtra.style.display = "flex"; // Se muestra el contenido
+                   
+                    // Asegurar velocidad normal del video
+                    video.playbackRate = 1.0;
+
+                    // Reproducir el video
+                    video.play();
+                }
+            });
+        });
+
+        // Seleccionar todos los botones de cerrar
+        const cerrarLinks = document.querySelectorAll('.cerrar');
+        
+        cerrarLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault(); // Evita el salto de ancla en la página
+                
+                // Buscamos el contenedor del artículo padre
+                const article = this.closest("article");
+
+                // Buscamos el video dentro de ese artículo
+                const video = article.querySelector("video");
+
+                // Ocultar el contenido extra
+                const contenidoExtra = article.querySelector(".contenido-extra");
+                contenidoExtra.style.display = "none"; // Se oculta el contenido
+                
+                // Pausar y reiniciar el video
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
+        });
+    });
+</script>
+
+</section>
+
+    
+    <!------------- SECCIÓN 3: PLAYLIST ------------->
+    <section class="playlist">
+        <article>
+            <img src="img/ondassmall.png" alt="Ondas de sonido">
+            <p> ¡Escucha la playlist completa que inspiró estos proyectos! </p>
+            <a class="secondarybtn" href="https://open.spotify.com/playlist/4iyimuT04EA3U6Bw1oKUBy?si=-Sy2CqD_SOWamUzzZ6ZV4w">SYNTHWAVE</a>
+        </article>
+    </section>
+
+    <section id="infocontacto">
+        <!-- Información de Contacto -->
+        <h2>¿Charlamos?</h2>
+        <a class="secondarybtn" href="mailto:helenlemosoliva@gmail.com">Contacto</a>
+    </section>
+   
+    <footer>
+
+        <div>
+            <a href="#">Créditos</a>
+            <a href="#">Helen Lemos - 300952</a>
+        </div>
+
+        <nav>
+            <a href="https://www.instagram.com/h.diseno.uy/" target="_blank"> <img src="img/logo-instagram.svg" alt="Logo de instagram"></a>
+            <a href="https://www.behance.net/helenlemosoliva" target="_blank"> <img src="img/logo-behance.svg" alt="Logo de behance"></a>
+            <a href="https://www.linkedin.com/in/helenlemos/" target="_blank"> <img src="img/logo-linkedin.svg" alt="Logo de LinkedIn"></a>
+        </nav>
+
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colaboraciones | Portfolio Helen Lemos</title>
+    <meta name="description" content="Así como en la música, donde los feats combinan estilos para crear algo único, estos proyectos nacieron de la fusión de ideas, habilidades y perspectivas. ">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+     <header>
+
+        <nav class="volver">
+            <img src="img/back.png" alt="Volver">
+            <a href="index.html"> Volver</a>
+        </nav>
+
+        <nav class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="exitos.html">Éxitos Pop</a>
+            <a href="experimental.html">Experimental</a>
+            <a class="active"  href="#">Colaboraciones</a>
+            <a href="clasicos.html">Clásicos Sistemáticos</a>
+            <a href="ondasdigitales.html">Ondas Digitales</a>
+            <a href="#infocontacto">Contacto</a>
+        </nav>
+     </header>
+    
+    <!------ SECCIÓN 1: DESCRIPCIÓN ------>
+    <section class="category">
+        <article>
+            <h2>COLABORACIONES</h2>
+            <p>Así como en la música, donde los feats combinan estilos para crear algo único, estos proyectos nacieron de la fusión de ideas, habilidades y perspectivas. </p>
+        
+            <!-- Botón Play Redondo -->
+            <audio id="audio" src="songs/Leavebeforeyouloveme.mp3" preload="auto"></audio>
+
+            <div class="circlebtn" onclick="toggleAudio()">
+                <svg class="play" viewBox="0 0 50 50" width="24" height="24">
+                    <polygon points="12,8 38,25 12,42"/>
+                </svg>
+                
+                <svg class="pause" viewBox="0 0 50 50" width="24" height="24">
+                    <rect x="12" y="8" width="8" height="34"/>
+                    <rect x="28" y="8" width="8" height="34"/>
+                </svg>
+            </div>
+
+            <script>
+                function toggleAudio() {
+                    let audio = document.getElementById("audio");
+                    let playIcon = document.querySelector(".play");
+                    let pauseIcon = document.querySelector(".pause");
+            
+                    if (audio.paused) {
+                        audio.play(); // Reproduce la canción
+                        playIcon.style.display = "none"; 
+                        pauseIcon.style.display = "block"; 
+                    } else {
+                        audio.pause(); // Pausa la canción
+                        playIcon.style.display = "block"; 
+                        pauseIcon.style.display = "none"; 
+                    }
+                }
+            </script>
+        </article>
+    </section>
+
+
+    <!------ SECCIÓN 2: TRABAJOS ÉXITO ------>
+    <section class="trabajos">
+        <!-- Artículo PER-SÉ -->
+        <article id="fanzine">
+            <img src="img/bocadoportada.png" alt="Tote bag con motivo del museo">
+            <div>
+                <h3>A PURO BOCADO</h3>
+                <p>Diseño de fanzine sobre alimentación saludable para público objetivo joven.
+                <em>Realizado en colaboración con Sara Trezza y Pía Platero.</em>
+                </p>
+                <p class="areas">Diseño Editorial · Redes Sociales · Animación </p>
+            </div>
+
+            <!-- Enlace para desplegar contenido -->
+            <a href="#contenido-bocado" class="ver-mas">
+                <img src="img/vermás.png" alt="Ver más">
+            </a>
+
+            <!-- Contenido oculto -->
+            <div id="contenido-bocado" class="contenido-extra">
+                <img src="img/redessocialesbocado.png" alt="">
+                <video id="video-1" src="img/apurobocado.mp4" controls></video>
+                <a href="#fanzine" class="cerrar"><img src="img/close-outline.png" alt=""></a>
+            </div>
+        </article>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Seleccionamos todos los videos
+            const videos = document.querySelectorAll("video");
+
+            videos.forEach(video => {
+                video.addEventListener("play", function () {
+                    // Detenemos todos los videos que están reproduciéndose
+                    videos.forEach(otherVideo => {
+                        if (otherVideo !== video) {
+                            otherVideo.pause();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    
+
+    <!------------- SECCIÓN 3: PLAYLIST ------------->
+    <section class="playlist">
+        <article>
+            <img src="img/colabssmall.png" alt="dos estellas">
+            <p> ¡Escucha la playlist completa que inspiró estos proyectos! </p>
+            <a class="secondarybtn" href="https://open.spotify.com/playlist/0mw2Pg6cWf0WI0kP64qaIe?si=fb0d658c152f49ef">COLABS</a>
+        </article>
+    </section>
+
+    <section id="infocontacto">
+        <!-- Información de Contacto -->
+        <h2>¿Charlamos?</h2>
+        <a class="secondarybtn" href="mailto:helenlemosoliva@gmail.com">Contacto</a>
+    </section>
+   
+    <footer>
+
+        <div>
+            <a href="#">Créditos</a>
+            <a href="#">Helen Lemos - 300952</a>
+        </div>
+
+        <nav>
+            <a href="https://www.instagram.com/h.diseno.uy/" target="_blank"> <img src="img/logo-instagram.svg" alt="Logo de instagram"></a>
+            <a href="https://www.behance.net/helenlemosoliva" target="_blank"> <img src="img/logo-behance.svg" alt="Logo de behance"></a>
+            <a href="https://www.linkedin.com/in/helenlemos/" target="_blank"> <img src="img/logo-linkedin.svg" alt="Logo de LinkedIn"></a>
+        </nav>
+
+
+    </footer>
+
+</body>
+</html>

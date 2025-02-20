@@ -1,0 +1,576 @@
+/* FUENTES */
+@font-face{
+    font-family: "Satoshi";
+    src:url(fonts/Satoshi-Regular.woff),
+        url(fonts/Satoshi-Regular.woff2),
+}
+@font-face{
+    font-family: "Satoshi Black";
+    src:url(fonts/Satoshi-Black.woff),
+        url(fonts/Satoshi-Black.woff2),
+}
+
+/* GENERAL */
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--negro);
+    color: var(--blanco);
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --negro: #080808;
+    --gris: #2a282e;
+    --violeta: #7924F2;
+    --violeta-light: #be90ff;
+    --blanco: #fbf7ff;
+}
+
+body {
+    font-family: "Satoshi";
+    padding: 2em;
+    max-width: 1200px;
+    margin: 0 5em;
+}
+
+nav, footer, .playlist article {
+    gap: 0.8em;
+}
+
+nav, footer, .playlist article, .circlebtn, .category article, .trabajos article {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+/* TIPOGRAFÍA */
+h1 {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--violeta-light);
+}
+
+h2 {
+    font-size: 2.2em;
+    color: var(--violeta-light);
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+/* ----- FOOTER ----- */
+footer {
+    justify-content: center;
+    gap: 1.5em;
+}
+
+footer div a {
+    margin-left: 1.5em;
+}
+
+footer div a:hover {
+    text-decoration: underline;
+}
+
+footer nav a{
+    margin-left: 0.6em;
+    transition: ease-in-out 0.3s;
+}
+
+footer nav a:hover {
+    transform: scale(0.9);
+}
+
+    
+
+/* ----- NAVEGACIÓN ----- */
+.volver {
+    display: none;
+}
+.menu a {
+    padding: 0.4em 1em;
+    position: relative;
+    text-decoration: none;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--violeta-light);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.active {
+    color: var(--violeta-light);
+    font-weight: 800;
+}
+/* Botón circular */
+.circlebtn {
+    width: 64px;  /* Ajusté el tamaño del botón */
+    height: 64px; /* Ajusté el tamaño del botón */
+    border-radius: 50%;
+    background: linear-gradient(135deg, #B480FF, #f5eef8);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    flex-shrink: 0;
+}
+
+/* Animación al hacer hover */
+.circlebtn:hover {
+    width: 70px;  /* Aumenté ligeramente el tamaño del botón al hacer hover */
+    height: 70px; /* Aumenté ligeramente el tamaño del botón al hacer hover */
+    box-shadow: 0 0 6px rgba(208, 166, 221, 0.5);
+}
+
+/* Iconos de Play y Pause */
+svg {
+    width: 36px; /* Reduje el tamaño del icono */
+    height: 36px; /* Reduje el tamaño del icono */
+    fill: var(--negro);
+    background-color: transparent;
+}
+
+/* Icono de Pause oculto */
+.pause {
+    display: none;
+}
+
+/* Botón Principal */
+.mainbtn {
+    background-color: var(--negro);
+    border-radius: 50px;
+    padding: 0.5em 1.5em;
+    font-weight: 700;
+    margin-top: 0.5em;
+    transition: ease-in-out 0.4s;
+}
+
+.secondarybtn {
+    border: 1px solid var(--violeta-light);
+    border-radius: 50px;
+    padding: 0.5em 2.5em;
+    font-weight: 700;
+    display: inline-block;
+    transition: ease-in-out 0.4s;
+}
+
+.secondarybtn:hover, .mainbtn:hover {
+    border: none;
+    background: linear-gradient(to bottom, #6018c4, #B480FF);
+}
+
+
+/* ----- HERO ----- */
+.presentacion, .playlist {
+    margin: 2.2em 0;
+}
+
+#sobremi, .category article p {
+    max-width: 45%;
+}
+.presentacion img {
+    max-width: 350px;
+}
+
+.presentacion p {
+    padding-top: 2em;
+}
+#esencia, #proyectos article, .trabajos {
+    display: flex;
+    flex-direction: column;
+}
+#esencia {
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    text-align: center;
+    gap: 1.5em;
+    width: auto;
+}
+
+/* PROYECTOS */
+#proyectos h2, #infocontacto h2 {
+    margin: 0.8em 0;
+}
+#proyectos article {
+    align-items: center;
+    gap: 0.8em;
+    background-image: linear-gradient(to bottom, #2e2e3d98, #d4cdf35a);
+    max-width: 300px; /* Puedes ajustar esto según el diseño */
+    min-height: 300px; /* Asegura un tamaño mínimo */
+    padding: 1.2em;
+    border-radius: 15px;
+    text-align: center;
+    transition: ease-in-out 0.4s;
+}
+
+#proyectos article:hover, .trabajos article:hover {
+    box-shadow: 0 0 10px rgba(208, 166, 221, 5);
+}
+
+#proyectos article h3,#proyectos article p, #proyectos article img, .trabajos article h3, .trabajos article div, .trabajos article div p, .trabajos article img, .trabajos article a, .trabajos article em {
+    background: transparent;
+    }
+
+#fila, .presentacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.7em;
+}
+
+.playlist p{
+    font-style: italic;
+}
+
+/* CONTACTO */
+#infocontacto {
+    text-align: center;
+    margin: 2.5em 0;
+}
+
+/* ----------------------------------------PÁGINA ÉXITOS --------------------------------------*/
+
+.category article p {
+    padding: 0 1.2em;
+}
+
+
+.category article h2, .category article h2 em {
+    color: var(--violeta-light);
+    font-family: "Satoshi Black";
+}
+
+.category article{
+    margin: 4em 0;
+}
+
+.trabajos {
+    margin: 3em 0;
+    gap: 3em;
+}
+.trabajos article {
+    margin: 0 auto;
+    background-image: linear-gradient(to right, #2e2e3d98, #d4cdf35a);
+    border-radius: 10px;
+    max-width: 85%;
+    padding: 1.5em 0;
+    flex-wrap: wrap;
+    gap: 1.2em;
+}
+
+.trabajos div {
+    max-width: 50%;
+}
+
+.trabajos article p {
+    margin-top: 1em;
+}
+.areas {
+    color: var(--violeta-light);
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+/* Ocultar contenido extra por defecto */
+.contenido-extra {
+    display: none;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    padding: 1.5em;
+    background: white;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Mostrar contenido cuando está activo */
+#contenido-perse:target, #contenido-museo:target, #contenido-bocado:target, #contenido-villaurea:target, #contenido-info:target,
+#contenido-app:target, #contenido-revista:target, .video-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+#contenido {
+    width: 100%;
+}
+
+img[src="img/revistamockup.png"] {
+    margin: 1.6em 0;
+}
+/* Centrar el video */
+.video-container, img[src="img/redessocialesbocado.png"] {
+    margin-bottom: 1.2em;
+}
+
+/* Close outline debajo del video */
+.cerrar {
+    display: block;
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+/* Imagen de la web (centrada y ajustada) */
+.imagen-web {
+    max-width: 1400px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Visor de la revista (más grande y centrado) */
+.visor-revista {
+    height: 40vh;
+    position: relative;
+}
+.visor-revista iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+img[src="img/mufemlogo2.gif"], img[src="img/mufemlogo1.gif"] {
+    max-width: 800px;
+    height: auto;
+    padding-bottom: 1.5em;
+}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    body {
+        text-align: center;
+    }
+
+    .presentacion div:first-of-type {
+        max-width: 100%
+    }   
+}
+
+/* Ajustes generales para pantallas más pequeñas */
+@media screen and (max-width: 1024px) {
+
+    /* Ajustar el padding del body y la alineación de los elementos */
+    body {
+        padding: 2em 1.5em;
+        margin: 0 3em;
+    }
+
+    /* Header y navegación */
+    .volver {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        margin-bottom: 1.5em;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .menu a {
+        padding: 0.5em 1.2em;
+    }
+
+    /* Hero section: presentación */
+    .presentacion {
+        gap: 2em;
+    }
+
+    #sobremi {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .presentacion img {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .menu, #esencia, #fila {
+        gap: 1em;
+    }
+
+    /* Proyectos */
+    #proyectos {
+        margin-top: 2em;
+    }
+
+    #proyectos h2 {
+        text-align: center;
+    }
+
+    #fila {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    #proyectos article {
+        max-width: 100%;
+        min-height: 250px;
+    }
+
+    /* Footer */
+    footer, .presentacion {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer div a {
+        margin-left: 0;
+    }
+
+    footer nav {
+        margin-top: 1em;
+    }
+
+    footer nav a {
+        margin-left: 0.5em;
+    }
+
+    /* Botón circular */
+    .circlebtn {
+        width: 60px;
+        height: 60px;
+    }
+
+    svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Estilo del botón */
+    .mainbtn {
+        padding: 0.5em 1.2em;
+    }
+
+    .secondarybtn {
+        padding: 0.5em 1.8em;
+    }
+}
+
+/* Ajustes para pantallas más pequeñas, como teléfonos móviles */
+@media screen and (max-width: 1024px) {
+    body {
+        padding: 1.5em;
+        margin: 0 1.5em;
+    }
+
+    #sobremi {
+        max-width: 100%;
+    }
+
+    .presentacion img {
+        max-width: 90%;
+        margin-top: 1em;
+    }
+
+    .circlebtn {
+        width: 80px;
+        height: 80px;
+    }
+
+    .circlebtn svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    #proyectos article {
+        max-width: 100%;
+        min-height: 200px;
+        padding: 1em;
+    }
+
+    #fila {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+    footer nav a {
+        margin-left: 0.5em;
+    }
+
+    .menu {
+        display: none;
+      }
+
+      /* ----- Éxitos ----- */
+    img[src="img/per-se1.png"], img[src="img/revista.png"],img[src="img/mufem.png"], img[src="img/portadavideo.png"], img[src="img/villaurea3.png"]{
+        width: 65%;
+      }
+
+      img[src="img/web-perse.png"], img[src="img/per-se1.png"], img[src="img/revistamockup.png"], img[src="img/mufemlogo 1.gif"], img[src="img/mufemlogo 2.gif"], img[src="img/redessocialesbocado.png"], video[src="img/a puro bocado.mp4"], video[src="img/videoinfografía.mp4"], video[src="img/Ucard.mp4"], #fila article, img[src="img/villaureabrandboard.png"]  {
+        width: 50vw;
+        height: auto;
+      }
+
+      #fila article, #sobremi p {
+        margin: 0 auto;
+      }
+
+      #sobremi p {
+        max-width: 80%;
+      }
+
+    }  
+
+    /* ----- MOBILE ----- */
+    @media screen and (max-width: 768px) {
+        .category article, .playlist article {
+            flex-direction: column;
+            gap: 1.5em;
+        }
+
+        .category article p {
+            max-width: 80vw;
+        }
+
+        #per-se, #espacio-forma, #museo-mujeres, #fanzine, #tipografia, #infografia, #ucard {
+            flex-direction: column;
+        }
+
+        .trabajos div {
+            max-width: 70%;
+        }
+
+        .trabajos article {
+            max-width: 100%;
+        }
+        .playlist article {
+            margin-bottom: 4em;
+        }
+
+        .playlist article p{
+            max-width: 50vw;
+        }
+
+        #fila article img {
+            width: 50%;
+        }
+
+        #fila article {
+            width: 70vw;
+            margin-bottom: 1.3em;
+        }
+    }

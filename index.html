@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Helen Lemos</title>
+    <meta name="description" content="Diseñadora gráfica con enfoque en diseño web, identidad visual, editorial, ilustración y animación. Exploro soluciones creativas que mejoran la experiencia del usuario y generan conexión. ¡Descubre mi trabajo!">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+     <header>
+
+        <nav class="menu">
+            <a class="active" href="index.html">Inicio</a>
+            <a href="exitos.html">Éxitos Pop</a>
+            <a href="experimental.html">Experimental</a>
+            <a href="colaboraciones.html">Colaboraciones</a>
+            <a href="clasicos.html">Clásicos Sistemáticos</a>
+            <a href="ondasdigitales.html">Ondas Digitales</a>
+            <a href="#infocontacto">Contacto</a>
+        </nav>
+     </header>
+     
+     <!-- HERO -->
+    <section class="presentacion">
+        <div id="sobremi">
+            <h1>¡Hola! <br>Soy Helen</h1>
+            <p>Estudiante de diseño gráfico. Me apasiona transformar ideas en experiencias. Recorrí el universo del branding, editorial y animación, pero en el diseño web encontré mi lugar. La música siempre acompañó mi proceso, y cada proyecto tiene su playlist. Recorriendo mi trabajo, vas a ver y escuchar su esencia.</p>
+        </div>
+        
+        <img src="img/mifoto.png" alt="Foto de mujer sonriendo con una cámara">
+    
+        <div id="esencia">
+            <p> Dale play <br> a mi esencia</p>
+
+<!-- Botón Play Redondo -->
+            <audio id="audio" src="songs/variasqueixas.mp3" preload="auto"></audio>
+
+            <div class="circlebtn" onclick="toggleAudio()">
+                <svg class="play" viewBox="0 0 50 50" width="24" height="24">
+                    <polygon points="12,8 38,25 12,42"/>
+                </svg>
+                
+                <svg class="pause" viewBox="0 0 50 50" width="24" height="24">
+                    <rect x="12" y="8" width="8" height="34"/>
+                    <rect x="28" y="8" width="8" height="34"/>
+                </svg>
+            </div>
+
+            <script>
+                function toggleAudio() {
+                    let audio = document.getElementById("audio");
+                    let playIcon = document.querySelector(".play");
+                    let pauseIcon = document.querySelector(".pause");
+            
+                    if (audio.paused) {
+                        audio.play(); // Reproduce la canción
+                        playIcon.style.display = "none"; 
+                        pauseIcon.style.display = "block"; 
+                    } else {
+                        audio.pause(); // Pausa la canción
+                        playIcon.style.display = "block"; 
+                        pauseIcon.style.display = "none"; 
+                    }
+                }
+            </script>
+        </div>
+    </section>
+
+    <section id="proyectos">
+
+        <h2> Proyectos </h2>
+
+        <div id="fila">
+            <article>
+                <img src="img/estrella.png" alt="Estrella con degradado">
+                <h3>Éxitos Pop</h3>
+                <p>Procesos que más disfruté, de impacto visual y conceptual especial.</p>
+                <a class="mainbtn" href="exitos.html">EXPLORAR</a>
+            </article>
+
+            <article>
+                <img src="img/experimental.png" alt="Tocadiscos">
+                <h3>Experimental</h3>
+                <p>Exploración e intervención de tipografía con nuevas técnicas.</p>
+                <a class="mainbtn" href="experimental.html">EXPLORAR</a>
+            </article>
+
+            <article>
+                <img src="img/colabs.png" alt="Dos estrellas">
+                <h3>Colaboraciones</h3>
+                <p>Proyectos grupales que nacieron de la fusión de ideas y habilidades.</p>
+                <a class="mainbtn" href="colaboraciones.html">EXPLORAR</a>
+            </article>
+
+            <article>
+                <img src="img/clasicos.png" alt="Piano">
+                <h3>Clásicos Sistemáticos</h3>
+                <p>Orden, ritmo y estructura para construir sistemas funcionales.</p>
+                <a class="mainbtn" href="clasicos.html">EXPLORAR</a>
+            </article>
+
+            <article>
+                <img src="img/ondas.png" alt="Ondas musicales">
+                <h3>Ondas Digitales</h3>
+                <p>UX/UI y multimedia: experiencias dinámicas y proyectadas al futuro.</p>
+                <a class="mainbtn" href="ondasdigitales.html">EXPLORAR</a>
+            </article>
+        </div>
+    </section>
+
+    <section id="infocontacto">
+                <!-- Información de Contacto -->
+                <h2>¿Charlamos?</h2>
+                <a class="secondarybtn" href="mailto:helenlemosoliva@gmail.com">Contacto</a>
+    </section>
+
+   
+    <footer>
+
+        <div>
+            <a href="#">Créditos</a>
+            <a href="#">Helen Lemos - 300952</a>
+        </div>
+
+        <nav>
+            <a href="https://www.instagram.com/hdiseno.uy/" target="_blank"> <img src="img/logo-instagram.svg" alt="Logo de instagram"></a>
+            <a href="https://www.behance.net/helenlemosoliva" target="_blank"> <img src="img/logo-behance.svg" alt="Logo de behance"></a>
+            <a href="https://www.linkedin.com/in/helenlemos/" target="_blank"> <img src="img/logo-linkedin.svg" alt="Logo de LinkedIn"></a>
+        </nav>
+
+
+    </footer>
+
+</body>
+</html>
